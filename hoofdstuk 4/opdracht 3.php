@@ -8,10 +8,10 @@
         $result = $tempresult + $numberTwo;
 
         echo $result;
-    } elseif ($numberTwo < $numberOne){
+    } elseif ($numberTwo > $numberOne){
         $tempresult = $numberTwo * 2;
         $result = $tempresult + $numberOne;
 
-        echo $result;
+        echo "resultaat is $result";
     }
 
