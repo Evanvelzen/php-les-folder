@@ -6,6 +6,7 @@
     $date4 = date("w");
     $date5 = date("t");
     $date6 = date("L");
+    $date7 = date("F");
     $check = 1;
 
 //hier wordt er een e bij de datum gezet indien nodig
@@ -16,7 +17,7 @@
 echo "Het is vandaag: $date. <br>";
 echo "Vandaag is het de $date2 dag van het jaar. <br>";
 echo "$date3 is de $date4 dag van de week. <br>";
-echo "De maand $date3 heeft in totaal $date5 dagen. <br>";
+echo "De maand $date7 heeft in totaal $date5 dagen. <br>";
 
 //else if statement
 if($date6 < $check) {
