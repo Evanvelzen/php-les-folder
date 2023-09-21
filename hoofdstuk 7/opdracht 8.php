@@ -1,12 +1,7 @@
-<?php
-SESSION_START();
-
-if (isset($_POST["send"])){
 
 
 
-}
-?>
+
 <!doctype html>
 <html lang="en">
 
@@ -32,9 +27,19 @@ if (isset($_POST["send"])){
             <div class="col-md-12">Fruitsoort
                 <form method="post" action="">
                     <input class="text" name="inputFruit" type="text">
-                    <input type="submit" name="send">
+                    <input type="submit" name="send" value="toevoegen">
                 </form>
             </div>
+            <br>
+            <div class="col-md-12">-----------------------</div>
+            <div class="col-md-12">
+                <form method="post" action="">
+                    <input type="submit" name="sorteer" value="sorteer">
+                    <input type="submit" name="schudden" value="schudden">
+                </form>
+            </div>
+            <br>
+            <div class="col-md-12">-----------------------</div>
         </div>
     </div>
 </main>
@@ -52,3 +57,33 @@ if (isset($_POST["send"])){
 </body>
 
 </html>
+
+<?php
+
+
+SESSION_START();
+if (!isset($_SESSION['fruits'])) {
+    $_SESSION['fruits'] = array();
+}
+
+if (isset($_POST["send"])){
+    $_SESSION['fruits'][] = $_POST["inputFruit"];
+    foreach ($_SESSION['fruits'] as $fruit){
+        echo "-$fruit <br>";
+    }
+}
+
+if (isset($_POST["schudden"])){
+    shuffle($_SESSION['fruits']);
+
+    foreach ($_SESSION['fruits'] as $fruit){
+        echo "-$fruit <br>";}
+}
+
+if (isset($_POST['sorteer'])){
+    sort($_SESSION['fruits']);
+
+    foreach ($_SESSION['fruits'] as $fruit){
+        echo "-$fruit <br>";}
+}
+?>
